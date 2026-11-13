@@ -6,3 +6,43 @@
     <title>TaskFlow</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <h1>TaskFlow</h1>
+            <div class="user-panel">
+                <span id="user-status">Гость</span>
+                <button id="auth-btn" class="btn-outline">Войти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container dashboard">
+        <!-- колонка задачи-->
+        <section class="card">
+            <h2>Мои задачи</h2>
+            <form id="task-form" class="add-form">
+                <input type="text" id="task-input" placeholder="Добавь новую задачу" required>
+                <button type="submit" class="btn-primary">+</button>
+            </form>
+            <ul id="task-list" class="item-list">
+                <!--сюда js будет добавлять задачи-->
+            </ul>
+        </section>
+
+        <!--колонка привычки-->
+        <section class="card">
+            <h2>Трекер привычек</h2>
+            <form id="habit-form" class="add-form">
+                <input type="text" id="habit-input" placeholder="Новая привычка" required>
+                <button type="submit" class="btn-primary">+</button>
+            </form>
+            <ul id="habit-list" class="item-list">
+                <!--сюда js будет добавлять привычки-->
+            </ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
