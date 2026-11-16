@@ -195,3 +195,15 @@ resetDataBtn.addEventListener('click', () => {
 renderTasks();
 renderHabits();
 updateProgress();
+
+const dialog = document.getElementById('login-dialog');
+
+document.getElementById('auth-btn').onclick = () => dialog.showModal();
+
+document.getElementById('close-dialog').onclick = () => dialog.close();
+
+// сюда потом добавить отправку на сервер
+document.getElementById('login-form').onsubmit = (e) => {
+    e.preventDefault();
+    dialog.close();
+};
