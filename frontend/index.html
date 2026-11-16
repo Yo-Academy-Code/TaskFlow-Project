@@ -10,38 +10,96 @@
     <header class="header">
         <div class="container header-content">
             <h1>TaskFlow</h1>
+
+            <!-- панель вкладок в шапке -->
+            <nav class="nav-tabs">
+                <button class="nav-btn active" data-tab="tasks"> Задачи</button>
+                <button class="nav-btn" data-tab="habits"> Трекер привычек</button>
+                <button class="nav-btn" data-tab="progress"> Прогресс</button>
+            </nav>
+
             <div class="user-panel">
+                <button class="nav-btn icon-btn" data-tab="settings" title="Настройки">Настройки</button>
                 <span id="user-status">Гость</span>
                 <button id="auth-btn" class="btn-outline">Войти</button>
             </div>
         </div>
     </header>
 
-    <main class="container dashboard">
-        <!-- колонка задачи-->
-        <section class="card">
-            <h2>Мои задачи</h2>
-            <ul id="task-list" class="item-list">
-                <!--сюда js будет добавлять задачи-->
-            </ul>
-            <form id="task-form" class="add-form">
-                <input type="text" id="task-input" placeholder="Добавь новую задачу" required>
-                <button type="submit" class="btn-primary">+</button>
-            </form>
+    <main class="container">
+        <!-- задачи -->
+        <section id="tab-tasks" class="tab-section active">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Мои задачи</h2>
+                    <div class="filter-box">
+                        <label for="filter-date">Показать на дату:</label>
+                        <input type="date" id="filter-date">
+                        <button type="button" id="clear-filter" class="btn-small">Все</button>
+                    </div>
+                </div>
+
+                <ul id="task-list" class="item-list">
+                    <!-- сюда JS добавит задачи -->
+                </ul>
+
+                <form id="task-form" class="add-form">
+                    <input type="text" id="task-input" placeholder="Добавь новую задачу..." required>
+                    <input type="date" id="task-date" required>
+                    <button type="submit" class="btn-primary">+</button>
+                </form>
+            </div>
         </section>
 
-        <!--колонка привычки-->
-        <section class="card">
-            <h2>Трекер привычек</h2>
-            <ul id="habit-list" class="item-list">
-                <!--сюда js будет добавлять привычки-->
-            </ul>
-            <form id="habit-form" class="add-form">
-                <input type="text" id="habit-input" placeholder="Новая привычка" required>
-                <button type="submit" class="btn-primary">+</button>
-            </form>
+        <!-- трекер привычек -->
+        <section id="tab-habits" class="tab-section">
+            <div class="card">
+                <h2>Трекер привычек</h2>
+                <ul id="habit-list" class="item-list">
+                    <!-- сюда JS добавит привычки -->
+                </ul>
+                <form id="habit-form" class="add-form">
+                    <input type="text" id="habit-input" placeholder="Новая привычка..." required>
+                    <button type="submit" class="btn-primary">+</button>
+                </form>
+            </div>
         </section>
 
+        <!-- прогресс -->
+        <section id="tab-progress" class="tab-section">
+            <div class="progress-grid">
+                <div class="card stat-card">
+                    <h2>Прогресс задач</h2>
+                    <div class="stat-number" id="tasks-stat-text">0 из 0 (0%)</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="tasks-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="card stat-card">
+                    <h2>Прогресс привычек на сегодня</h2>
+                    <div class="stat-number" id="habits-stat-text">0 из 0 (0%)</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="habits-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- настройки -->
+        <section id="tab-settings" class="tab-section">
+            <div class="card">
+                <h2> Настройки</h2>
+                <div class="settings-item">
+                    <span>Тёмная тема оформления</span>
+                    <button id="theme-toggle" class="btn-outline">Включить тёмную тему</button>
+                </div>
+                <div class="settings-item">
+                    <span>Очистить все сохранённые данные</span>
+                    <button id="reset-data" class="btn-danger">Сбросить всё</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="app.js"></script>
